@@ -1,0 +1,29 @@
+{
+    "folders": [
+        {
+            "name": "automation",
+            "path": "..",
+        },
+        {
+            "path": "${TMPLT:HOME}/akit"
+        }
+    ],
+    "settings": {
+        "python.pythonPath": "${TMPLT:REPOSITORY_FOLDER}/automation/.venv/bin/python",
+        "python.envFile": "${TMPLT:REPOSITORY_FOLDER}/automation/.cache/development.env",
+        "terminal.integrated.env.linux": {
+            "PYTHONPATH": "${TMPLT:REPOSITORY_FOLDER}/automation/python3/testroots:${TMPLT:REPOSITORY_FOLDER}/automation/python3/packages:${TMPLT:VENV_SITEPACKAGES_FOLDER}"
+        },
+        "terminal.integrated.profiles.linux": {
+            "virtual-env": {
+                "path": "${TMPLT:REPOSITORY_FOLDER}/automation/.venv/bin/activate"
+            }
+        },
+        "python.analysis.extraPaths": [
+            "${TMPLT:VENV_SITEPACKAGES_FOLDER}",
+            "${TMPLT:REPOSITORY_FOLDER}/automation/python3/packages",
+            "${TMPLT:REPOSITORY_FOLDER}/automation/python3/tools"
+        ]
+    }
+}
+
