@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Establish the base repository reference directory
+THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+AUTOMATION_DIR="$( dirname $( dirname $THIS_DIR ) )"
+
+echo "THIS_DIR=$THIS_DIR"
+echo "AUTOMATION_DIR=$AUTOMATION_DIR"
+
+# Find and clean all the line endings of python files
+if [ -d $AUTOMATION_DIR/python3/packages ]; then
+    echo "cleaning packages directory..."
+    find $AUTOMATION_DIR/python3/packages -name '*.py' | xargs --verbose sed -i 's/[[:space:]]*$//'
+fi
+
+if [ -d $AUTOMATION_DIR/python3/testroots ]; then
+    echo "cleaning testroots directory..."
+    find $AUTOMATION_DIR/python3/testroots -name '*.py' | xargs --verbose sed -i 's/[[:space:]]*$//'
+fi

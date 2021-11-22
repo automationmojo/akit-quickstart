@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# Establish the base repository reference directory
+THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+AUTOMATION_DIR="$( dirname $( dirname $THIS_DIR ) )"
+
+echo "THIS_DIR=$THIS_DIR"
+echo "AUTOMATION_DIR=$AUTOMATION_DIR"
+
+INITIALIZED_FILE="$AUTOMATION_DIR/local/initialized"
+
+if [ ! -f $INITIALIZED_FILE ]; then
+    echo "The developement environement must be setup before linting can be run."
+    exit 1
+fi
+
+REPORTS_DIR="$AUTOMATION_DIR/local/reports"
+
+PYLINT_CONFIG_DIR="$AUTOMATION_DIR/integration/linting"
+
+PYLINT_BIN="$AUTOMATION_DIR/local/venv/bin/pylint"
+PYLINT_REPORT="$REPORTS_DIR/$REPORT_PREFIX-pylint.txt"
+
+if [ ! -d $REPORTS_DIR ]; then
+    mkdir -p $REPORTS_DIR
+fi
+
+PYTHONPATH=""
+
+PACKAGES_DIR="$AUTOMATION_DIR/python3/packages"
+if [ -d $PACKAGES_DIR ]; then
+    PYTHONPATH="$PACKAGES_DIR:$PYTHONPATH"
+    PACKAGES_FILES=$( find $PACKAGES_DIR -iname "*.py")
+    $PYLINT_BIN --rcfile="$PYLINT_CONFIG_DIR/pylint-packages.conf" $PACKAGES_FILES >> $PYLINT_REPORT
+fi
+
+TESTS_DIR="$AUTOMATION_DIR/python3/testroots"
+if [ -d $TESTS_DIR ]; then
+    PYTHONPATH="$TESTS_DIR:$PYTHONPATH"
+    TEST_FILES=$( find $TESTS_DIR -iname "*.py")
+    $PYLINT_BIN --rcfile="$PYLINT_CONFIG_DIR/pylint-testroots.conf" $TEST_FILES >> $PYLINT_REPORT
+fi

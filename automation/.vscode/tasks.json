@@ -1,0 +1,100 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Clean - Trailing Whitespace (Packages)",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder:automation}/python3/packages"
+            },
+            "command": "find",
+            "args": [
+                ".",
+                "-type",
+                "f",
+                "-name",
+                "*.py",
+                "-exec",
+                "sed",
+                "--in-place",
+                "'s/[[:space:]]\\{1,\\}$//'",
+                "{}",
+                "\\+"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Environment - Reset",
+            "type": "shell",
+            "command": "${workspaceFolder:automation}/deployment/setup-environment reset",
+            "problemMatcher": []
+        },
+        {
+            "label": "Environment - Setup",
+            "type": "shell",
+            "command": "${workspaceFolder:automation}/deployment/setup-environment",
+            "problemMatcher": []
+        },
+        {
+            "label": "Environment - Shell",
+            "type": "shell",
+            "command": "${workspaceFolder:automation}/deployment/testshell-environment",
+            "problemMatcher": []
+        },
+        {
+            "label": "Scan - Pylint Packages (Merge)",
+            "type": "shell",
+            "options": {
+                "cwd": "${env:HOME}/akit/results/pylint"
+            },
+            "command": "${workspaceFolder:automation}/.venv/bin/pylint",
+            "args": [
+                "--rcfile=${workspaceFolder}/integration/linting/merge/pylint-packages.rc",
+                "${workspaceFolder}/packages/exorg",
+                ">",
+                "${env:HOME}/akit/results/pylint/merge-linting-errors.txt"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Scan - Pylint Packages (Strict)",
+            "type": "shell",
+            "options": {
+                "cwd": "${env:HOME}/akit/results/pylint"
+            },
+            "command": "${workspaceFolder:automation}/.venv/bin/pylint",
+            "args": [
+                "--rcfile=${workspaceFolder}/integration/linting/strict/pylint-packages.rc",
+                "${workspaceFolder:automation}/packages/exorg",
+                ">",
+                "${env:HOME}/akit/results/pylint/strict-linting-errors.txt"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Web Service - Documentation",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder:automation}/docs"
+            },
+            "command": "${workspaceFolder:automation}/.venv/bin/python",
+            "args": [
+                "-m",
+                "http.server",
+                "8001"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Web Service - Test Result",
+            "type": "shell",
+            "options": {
+                "cwd": "${env:HOME}/akit/results"
+            },
+            "command": "${workspaceFolder:automation}/.venv/bin/python -m http.server 8000",
+            "problemMatcher": []
+        }
+    ]
+}

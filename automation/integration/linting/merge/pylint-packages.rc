@@ -1,0 +1,28 @@
+[DESIGN]
+max-attributes=15
+
+[MESSAGE CONTROL]
+# C0301 Line too long
+disable=consider-using-in,
+        duplicate-code,
+        global-statement,
+        invalid-name,
+        line-too-long,
+        logging-not-lazy,
+        super-with-arguments,
+        useless-return,
+        too-few-public-methods,
+        too-many-arguments,
+        too-many-branches,
+        too-many-instance-attributes,
+        too-many-lines,
+        too-many-locals,
+        too-many-nested-blocks,
+        too-many-public-methods,
+        too-many-statements,
+        unnecessary-comprehension
+
+extension-pkg-whitelist=netifaces
+
+ignored-arguement-names=_arg|_args|_kwargs
+

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Establish the base repository reference directory
+THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+source $THIS_DIR/../../_local/development.env
+
+export AUTOMATION_DIR=$AUTOMATION_DIR
+export REPOSITORY_DIRECTORY=$REPOSITORY_DIRECTORY
+export DEVELOPER_MODE=$DEVELOPER_MODE
+export PYTHONPATH=$PYTHONPATH
+
+echo "=================== Current Environment ==================="
+echo "      AUTOMATION_DIR: ${AUTOMATION_DIR}"
+echo " REPOSITORY_DIRECTORY: ${REPOSITORY_DIRECTORY}"
+echo "       DEVELOPER_MODE: ${DEVELOPER_MODE}"
+echo "           PYTHONPATH: ${PYTHONPATH}"
+
+python "$THIS_DIR/show-env.py"

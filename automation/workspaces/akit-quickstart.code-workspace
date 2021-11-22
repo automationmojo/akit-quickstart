@@ -1,0 +1,26 @@
+{
+    "folders": [
+        {
+            "path": "../.."
+        },
+        {
+            "path": "${env:HOME}/akit"
+        }
+    ],
+    "settings": {
+        "python.pythonPath": "../.venv/bin/python",
+        "python.envFile": "../.cache/development.env",
+        "terminal.integrated.env.linux": {
+            "PYTHONPATH": "$PYTHONPATH:${workspaceFolder}/automation/python3/packages:$PYTHONPATH:${workspaceFolder}/automation/python3/testroots"
+        },
+        "terminal.integrated.profiles.linux": {
+            "virtual-env": {
+                "path": "../.venv/bin/activate"
+            }
+        },
+        "python.analysis.extraPaths": [
+            "../python3/packages"
+        ]
+    }
+}
+
