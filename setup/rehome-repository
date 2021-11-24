@@ -8,8 +8,8 @@ PYTHON_VERSION = "python3.8"
 
 THIS_DIR = os.path.abspath(os.path.dirname(__file__))
 
-REPOSITORY_FOLDER = os.path.abspath(os.path.join(THIS_DIR, "..", ".."))
-AUTOMATION_FOLDER = os.path.abspath(os.path.join(THIS_DIR, ".."))
+REPOSITORY_FOLDER = os.path.abspath(os.path.join(THIS_DIR, ".."))
+AUTOMATION_FOLDER = os.path.abspath(os.path.join(REPOSITORY_FOLDER, "automation"))
 
 VENV_FOLDER = os.path.join(AUTOMATION_FOLDER, ".venv")
 VENV_BIN_FOLDER = os.path.join(VENV_FOLDER, "bin")
