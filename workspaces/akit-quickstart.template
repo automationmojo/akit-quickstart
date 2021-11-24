@@ -1,10 +1,13 @@
 {
     "folders": [
         {
-            "name": "automation",
-            "path": "..",
+            "path": "../automation"
         },
         {
+            "path": "../workspaces"
+        },
+        {
+            "name": "akit-config",
             "path": "${TMPLT:HOME}/akit"
         }
     ],
