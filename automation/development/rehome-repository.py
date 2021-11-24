@@ -15,16 +15,19 @@ VENV_FOLDER = os.path.join(AUTOMATION_FOLDER, ".venv")
 VENV_BIN_FOLDER = os.path.join(VENV_FOLDER, "bin")
 VENV_SITEPACKAGES_FOLDER = os.path.join(VENV_FOLDER, "lib", PYTHON_VERSION, "site-packages")
 
-WORKSPACES_FOLDER = os.path.join(AUTOMATION_FOLDER, "workspaces")
+WORKSPACES_FOLDER = os.path.join(REPOSITORY_FOLDER, "workspaces")
 
 def replace_macros(template_line):
     """
         Perform a simple replacement any macros found in the template line passed to us.
     """
 
+    home = os.path.expanduser("~")
+
     filled_line = template_line
 
     filled_line = filled_line.replace(r"${TMPLT:AUTOMATION_FOLDER}", AUTOMATION_FOLDER)
+    filled_line = filled_line.replace(r"${TMPLT:HOME}", home)
     filled_line = filled_line.replace(r"${TMPLT:PYTHON_VERSION}", PYTHON_VERSION)
     filled_line = filled_line.replace(r"${TMPLT:REPOSITORY_FOLDER}", REPOSITORY_FOLDER)
     filled_line = filled_line.replace(r"${TMPLT:VENV_FOLDER}", VENV_FOLDER)
@@ -59,17 +62,33 @@ def generate_vscode_workspace_files():
     # Go through all of the VSCODE workspace templates and generate the 'code-workspace' files homed to the
     # location of this cloned repository
 
-    workspace_template_files = [np for np in os.listdir(WORKSPACES_FOLDER) if os.path.isfile(np) and np.endswith(".template")]
+
+    print("Scanning workspaces folder:")
+    print(WORKSPACES_FOLDER)
+    print("")
+
+    workspace_template_files = []
+    
+    for root, dirs, files in os.walk(WORKSPACES_FOLDER):
+        for np in files:
+            np_full = os.path.join(root, np)
+            if os.path.isfile(np_full):
+                _, npext = os.path.splitext(np_full)
+                if npext == ".template":
+                    workspace_template_files.append(np_full)
 
     for template_file in workspace_template_files:
 
         template_file_base, template_file_ext = os.path.splitext(os.path.basename(template_file))
         workspace_file = os.path.join(WORKSPACES_FOLDER, "{}.code-workspace".format(template_file_base))
 
+        print("Processing template: {}".format(template_file))
+
         with open(template_file, 'r') as tf:
             template_lines = tf.read().splitlines(True)
 
             with open(workspace_file, 'w') as wf:
+                print("Generating code-workspace: {}".format(workspace_file))
                 for tline in template_lines:
                     fline = replace_macros(tline)
                     wf.write(fline)
