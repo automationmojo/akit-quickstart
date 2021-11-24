@@ -80,7 +80,8 @@ def generate_vscode_workspace_files():
     for template_file in workspace_template_files:
 
         template_file_base, template_file_ext = os.path.splitext(os.path.basename(template_file))
-        workspace_file = os.path.join(WORKSPACES_FOLDER, "{}.code-workspace".format(template_file_base))
+        template_dir = os.path.dirname(template_file)
+        workspace_file = os.path.join(template_dir, "{}.code-workspace".format(template_file_base))
 
         print("Processing template: {}".format(template_file))
 
