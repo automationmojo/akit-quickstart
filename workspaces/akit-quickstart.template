@@ -4,6 +4,9 @@
             "path": "../automation"
         },
         {
+            "path": "../setup"
+        },
+        {
             "path": "../workspaces"
         },
         {
