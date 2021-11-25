@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# ==============================================================================
+# Description:
+#
+#     This script prints out the environment variables that have been set in
+# the workspace environment.
+#
+# ==============================================================================
+
 # Establish the base repository reference directory
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -10,7 +18,7 @@ export REPOSITORY_DIRECTORY=$REPOSITORY_DIRECTORY
 export DEVELOPER_MODE=$DEVELOPER_MODE
 export PYTHONPATH=$PYTHONPATH
 
-echo "=================== Current Environment ==================="
+echo "=================== Workspace Environment ==================="
 echo "      AUTOMATION_DIR: ${AUTOMATION_DIR}"
 echo " REPOSITORY_DIRECTORY: ${REPOSITORY_DIRECTORY}"
 echo "       DEVELOPER_MODE: ${DEVELOPER_MODE}"

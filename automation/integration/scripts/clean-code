@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# ==============================================================================
+# Description:
+#
+#     This script processes file trees of specific parent folders in the
+# Automation directory and cleans the files of trailing whitespace.
+#
+# ==============================================================================
+
 # Establish the base repository reference directory
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 AUTOMATION_DIR="$( dirname $( dirname $THIS_DIR ) )"

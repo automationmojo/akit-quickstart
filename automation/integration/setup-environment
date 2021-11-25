@@ -1,0 +1,80 @@
+#!/bin/bash
+
+# -------------------------------------------------------------------------------------------
+#                                 Setup all the Variables and Paths
+# -------------------------------------------------------------------------------------------
+echo "------------------------------------ VARIABLES ----------------------------------------"
+
+# Establish the base repository reference directory
+THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+REPOSITORY_DIR="$( dirname $( dirname $THIS_DIR ) )"
+AUTOMATION_DIR="$REPOSITORY_DIR/automation"
+
+echo "THIS_DIR=$THIS_DIR"
+echo "REPOSITORY_DIR=$REPOSITORY_DIR"
+echo "AUTOMATION_DIR=$AUTOMATION_DIR"
+
+# Setup our local directory
+CACHE_DIR="$AUTOMATION_DIR/.cache"
+if [ ! -d $CACHE_DIR ]; then
+    mkdir $CACHE_DIR
+fi
+
+REQUIREMENTS_FILE="$AUTOMATION_DIR/integration/pip-base-requirements.txt"
+INITIALIZED_FILE="$CACHE_DIR/initialized"
+VIRTUAL_ENV_DIR="$AUTOMATION_DIR/.venv"
+
+echo "VIRTUAL_ENV_DIR=$REPOSITORY_DIR"
+
+echo "---------------------------------------------------------------------------------------"
+# -------------------------------------------------------------------------------------------
+#                                 Perform Reset if Required
+# -------------------------------------------------------------------------------------------
+
+if [ "$1" == "reset" ]; then
+    rm -fr $VIRTUAL_ENV_DIR
+    rm -f $INITIALIZED_FILE
+fi
+
+# -------------------------------------------------------------------------------------------
+#                                 Create the Virtual Environment
+# -------------------------------------------------------------------------------------------
+echo
+echo
+echo "---------------------------- VIRTUAL ENVIRONMENT CREATION -----------------------------"
+if [ ! -f $INITIALIZED_FILE ]; then
+
+    virtualenv -p python3.8 $VIRTUAL_ENV_DIR
+
+    if [ -f $VIRTUAL_ENV_DIR/bin/activate ]; then
+        source $VIRTUAL_ENV_DIR/bin/activate
+
+        # MSCODE Environment Dependencies
+        pip install rope
+        pip install debugpy
+        pip install pylint
+
+        # Development Modules
+        pip install "docutils<0.17" # We need this for sphinx_rtd_theme
+        pip install sphinx
+        pip install sphinx_rtd_theme
+
+        if [ -f $REQUIREMENTS_FILE ]; then
+            # Install dependencies into the virtual environment
+            pip install -r $REQUIREMENTS_FILE
+        fi
+
+        touch $INITIALIZED_FILE
+
+        # Exit the virtual environment
+        deactivate
+
+    else
+        echo "ERROR: Unable to create or find the python virtual environment"
+    fi
+
+else
+    echo "Virtual environment already intialized..."
+fi
+
+echo "---------------------------------------------------------------------------------------"

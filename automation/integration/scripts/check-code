@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# ==============================================================================
+# Description:
+#
+#     This script runs code linting and code validation tools against the code
+# in the automation folder of the repository.  It performs this action by first
+# the 'automation' folder and then running validation tools on specific
+# sub-directories that need to be validated for compliance.
+#
+# ==============================================================================
+
 # Establish the base repository reference directory
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 AUTOMATION_DIR="$( dirname $( dirname $THIS_DIR ) )"
@@ -10,7 +20,7 @@ echo "AUTOMATION_DIR=$AUTOMATION_DIR"
 INITIALIZED_FILE="$AUTOMATION_DIR/local/initialized"
 
 if [ ! -f $INITIALIZED_FILE ]; then
-    echo "The developement environement must be setup before linting can be run."
+    echo "The developement environment must be setup before linting can be run."
     exit 1
 fi
 
