@@ -26,6 +26,33 @@
             "problemMatcher": []
         },
         {
+            "label": "API Docs - Build (Full)",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder:automation}/sphinx"
+            },
+            "command": "make apidoc-full",
+            "problemMatcher": []
+        },
+        {
+            "label": "API Docs - Build (Missing)",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder:automation}/sphinx"
+            },
+            "command": "make apidoc",
+            "problemMatcher": []
+        },
+        {
+            "label": "Docs - Build Html",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder:automation}/sphinx"
+            },
+            "command": "make html",
+            "problemMatcher": []
+        },
+        {
             "label": "Environment - Reset",
             "type": "shell",
             "command": "${workspaceFolder:automation}/integration/setup-environment reset",
@@ -35,12 +62,6 @@
             "label": "Environment - Setup",
             "type": "shell",
             "command": "${workspaceFolder:automation}/integration/setup-environment",
-            "problemMatcher": []
-        },
-        {
-            "label": "Environment - Shell",
-            "type": "shell",
-            "command": "${workspaceFolder:automation}/integration/testshell-environment",
             "problemMatcher": []
         },
         {
