@@ -50,15 +50,16 @@ if [ ! -f $INITIALIZED_FILE ]; then
         source $VIRTUAL_ENV_DIR/bin/activate
 
         # MSCODE Environment Dependencies
-        pip install rope
-        pip install debugpy
-        pip install pylint
+        pip3 install rope
+        pip3 install debugpy
+        pip3 install pylint
 
         # Development Modules
-        pip install "docutils<0.17" # We need this for sphinx_rtd_theme
-        pip install sphinx
-        pip install sphinx_rtd_theme
-
+        pip3 install "docutils<0.17" # We need this for sphinx_rtd_theme
+        pip3 install myst-parser
+        pip3 install sphinx
+        pip3 install sphinx_rtd_theme
+        
         if [ -f $REQUIREMENTS_FILE ]; then
             # Install dependencies into the virtual environment
             pip install -r $REQUIREMENTS_FILE
