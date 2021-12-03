@@ -9,7 +9,7 @@ SOURCEDIR     = docsrc
 BUILDDIR      = "$(SOURCEDIR)/_build/"
 APIDOCDIR     = "$(SOURCEDIR)/apidoc"
 PACKAGESDIR   = ../python3/packages/exorg
-PUBLISHDIR = ../docs
+PUBLISHDIR = ../../docs
 
 # Put it first so that "make" without argument is like "make help".
 help:

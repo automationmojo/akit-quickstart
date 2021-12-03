@@ -4,6 +4,9 @@
             "path": "../automation"
         },
         {
+            "path": "../docs"
+        },
+        {
             "path": "../setup"
         },
         {
@@ -29,7 +32,9 @@
             "${TMPLT:VENV_SITEPACKAGES_FOLDER}",
             "${TMPLT:REPOSITORY_FOLDER}/automation/python3/packages",
             "${TMPLT:REPOSITORY_FOLDER}/automation/python3/tools"
-        ]
+        ],
+        "restructuredtext.confPath": "${TMPLT:REPOSITORY_FOLDER}/automation/sphinx/source",
+        "restructuredtext.builtDocumentationPath": "${TMPLT:REPOSITORY_FOLDER}/docs/html"
     }
 }
 

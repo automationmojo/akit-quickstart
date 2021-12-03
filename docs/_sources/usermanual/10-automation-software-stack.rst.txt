@@ -91,7 +91,7 @@ The layout of the software stack shown above is critically important for creatin
 robust at scale.  It is partitioned in such a way as to hit a sweet spot between the
 needs of the Continuous Integration team and the Individual Test Contributors on many
 levels.  If you want to understand the importance of the partitioning shown you can
-read an in depth explanation on the `Test Automation Software Stack - Details<https://github.com/automationmojo/automationkit/blob/main/docs/markdown/test-automation-software-stack-details.md>`
+read an in depth explanation on the `Test Automation Software Stack - Details <https://github.com/automationmojo/automationkit/blob/main/docs/markdown/test-automation-software-stack-details.md>`_
 
 The sections below describe the integration model that is utilized by the **AutomationKit**
 in order to quickly stand up robust automation projects.
@@ -109,7 +109,7 @@ interact with external resources that are to be integrated into an automation ru
 The **Landscape** object loads a description of the landscape from a 'yaml' file located
 at '~/akit/config/landscape.yaml' or from the file specified by a command-line parameter
 or via the 'AKIT_LANDSCAPE' environment variable.  A description of the landscape file
-format and properties is described in the `landscape description documentation<https://github.com/automationmojo/automationkit/blob/main/docs/markdown/31-landscape-file.md>`.
+format and properties is described in the `landscape description documentation <https://github.com/automationmojo/automationkit/blob/main/docs/markdown/31-landscape-file.md>`_.
 
 The **Landscape** object utilizes Coordinator objects to manage external automation
 resources such as devices, serial connections, and power connections.  The coordinators

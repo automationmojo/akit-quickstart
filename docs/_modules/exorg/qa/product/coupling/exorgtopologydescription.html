@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>exorg.qa.product.coupling.exorglandscapedescription &mdash; Automation Kit - Quick Start 0.2 documentation</title>
+  <title>exorg.qa.product.coupling.exorgtopologydescription &mdash; Automation Kit - Quick Start 0.2 documentation</title>
       <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -39,6 +39,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../usermanual/usermanual.html">User Manual</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../apidoc/modules.html">exorg</a></li>
 </ul>
 
@@ -57,7 +58,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../../../../index.html">Module code</a> &raquo;</li>
-      <li>exorg.qa.product.coupling.exorglandscapedescription</li>
+      <li>exorg.qa.product.coupling.exorgtopologydescription</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -66,19 +67,19 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for exorg.qa.product.coupling.exorglandscapedescription</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">akit.integration.landscaping.landscapedescription</span> <span class="kn">import</span> <span class="n">LandscapeDescription</span>
+  <h1>Source code for exorg.qa.product.coupling.exorgtopologydescription</h1><div class="highlight"><pre>
+<span></span>
+<span class="kn">from</span> <span class="nn">akit.integration.landscaping.topologydescription</span> <span class="kn">import</span> <span class="n">TopologyDescription</span>
 
+<div class="viewcode-block" id="ExOrgTopologyDescription"><a class="viewcode-back" href="../../../../../apidoc/exorg.qa.product.coupling.html#exorg.qa.product.coupling.exorglandscape.ExOrgTopologyDescription">[docs]</a><span class="k">class</span> <span class="nc">ExOrgTopologyDescription</span><span class="p">(</span><span class="n">TopologyDescription</span><span class="p">):</span>
 
-<div class="viewcode-block" id="ExOrgLandscapeDescription"><a class="viewcode-back" href="../../../../../apidoc/exorg.qa.product.coupling.html#exorg.qa.product.coupling.exorglandscape.ExOrgLandscapeDescription">[docs]</a><span class="k">class</span> <span class="nc">ExOrgLandscapeDescription</span><span class="p">(</span><span class="n">LandscapeDescription</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-<div class="viewcode-block" id="ExOrgLandscapeDescription.validate_landscape"><a class="viewcode-back" href="../../../../../apidoc/exorg.qa.product.coupling.html#exorg.qa.product.coupling.exorglandscape.ExOrgLandscapeDescription.validate_landscape">[docs]</a>    <span class="k">def</span> <span class="nf">validate_landscape</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">landscape_info</span><span class="p">):</span>
+<div class="viewcode-block" id="ExOrgTopologyDescription.validate_topology"><a class="viewcode-back" href="../../../../../apidoc/exorg.qa.product.coupling.html#exorg.qa.product.coupling.exorglandscape.ExOrgTopologyDescription.validate_topology">[docs]</a>    <span class="k">def</span> <span class="nf">validate_topology</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topology_info</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Validates the landscape description file.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">errors</span><span class="p">,</span> <span class="n">warnings</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">ExOrgLandscapeDescription</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">validate_landscape</span><span class="p">(</span><span class="n">landscape_info</span><span class="p">)</span>
+        <span class="n">errors</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">warnings</span> <span class="o">=</span> <span class="p">[]</span>
+
         <span class="k">return</span> <span class="n">errors</span><span class="p">,</span> <span class="n">warnings</span></div></div>
 </pre></div>
 
