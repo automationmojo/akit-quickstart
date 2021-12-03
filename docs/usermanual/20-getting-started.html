@@ -145,14 +145,20 @@ git clone git@github.com:exorg/exorg-qa.git exorg-qa
 </div>
 <p>After you clone the repository, you will need to rehome the repository so the workspace task and
 debug configurations work properly in your VSCode development environment.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>setup/rehome-repository
+</pre></div>
+</div>
 <p>After rehoming your repository, you will also need to make sure all the dependencies are installed and
 configured on your machine, in order for it to support the automation environment.  This is done by running
 the setup script.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>setup/setup-machine
+</pre></div>
+</div>
 <p>After you have setup the machine and rehomed the repository, you can open an automation workspace by
 opening the workspace located at.</p>
-<blockquote>
-<div><p>(repository)/workspaces/player_automation/player_automation.code-workspace</p>
-</div></blockquote>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(repository)/workspaces/player_automation/player_automation.code-workspace
+</pre></div>
+</div>
 <p>Note that the file above will not exist if you have not rehomed the repository.  You will only see “.template”
 files in the workspaces folder until you re-home the repository.</p>
 </div>
@@ -164,10 +170,10 @@ be asked to accept workspace settings, you should accept those also.</p>
 <p>At this point you are very close to being able to run automation code, but you still have one last thing to do.
 You must setup the python virtual environment used by the automation code.  This can be done in two ways.  You can
 run the VSCode task by selecting <strong>Run</strong>-&gt;**Task** as shown below.</p>
-<a class="reference internal image-reference" href="_static/images/vscode-run-task.png"><img alt="Run Task image" src="_static/images/vscode-run-task.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="_static/images/vscode-run-task.jpg"><img alt="Run Task image" src="_static/images/vscode-run-task.jpg" style="width: 400px;" /></a>
 <p>When you click the <strong>Task</strong> menu item, then tasks menu will be shown.  You will select the task named
 <strong>Environment - Setup</strong> or <strong>Environment - Rest</strong>.</p>
-<a class="reference internal image-reference" href="_static/images/vscode-task-run-environment-reset.png"><img alt="Select Environment Reset Task" src="_static/images/vscode-task-run-environment-reset.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="_static/images/vscode-task-run-environment-reset.jpg"><img alt="Select Environment Reset Task" src="_static/images/vscode-task-run-environment-reset.jpg" style="width: 400px;" /></a>
 <p>The reset task is used if you need to reset an environment that was previously setup.  It bypasses checks
 which see if the virtual environment already exists.</p>
 <p>The second way to setup the virtual environment is from the commandline.  From the repository folder you can run

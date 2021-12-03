@@ -39,7 +39,7 @@ To get started working in the *ExOrg QA* environment, you will first need to clo
 After you clone the repository, you will need to rehome the repository so the workspace task and
 debug configurations work properly in your VSCode development environment.
 
-.. code-block: bash
+.. code-block:: bash
 
     setup/rehome-repository
 
@@ -47,12 +47,14 @@ After rehoming your repository, you will also need to make sure all the dependen
 configured on your machine, in order for it to support the automation environment.  This is done by running
 the setup script.
 
-.. code-block: bash
+.. code-block:: bash
 
     setup/setup-machine
 
 After you have setup the machine and rehomed the repository, you can open an automation workspace by
 opening the workspace located at.
+
+.. code-block:: text
 
     (repository)/workspaces/player_automation/player_automation.code-workspace
 
@@ -69,14 +71,14 @@ At this point you are very close to being able to run automation code, but you s
 You must setup the python virtual environment used by the automation code.  This can be done in two ways.  You can
 run the VSCode task by selecting **Run**->**Task** as shown below.
 
-.. image:: /_static/images/vscode-run-task.png
+.. image:: /_static/images/vscode-run-task.jpg
   :width: 400
   :alt: Run Task image
 
 When you click the **Task** menu item, then tasks menu will be shown.  You will select the task named 
 **Environment - Setup** or **Environment - Rest**.
 
-.. image:: /_static/images/vscode-task-run-environment-reset.png
+.. image:: /_static/images/vscode-task-run-environment-reset.jpg
   :width: 400
   :alt: Select Environment Reset Task
 
