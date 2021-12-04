@@ -46,7 +46,7 @@ Because the **Automation Kit Quick Start** repository is setup as a template rep
 you view it in GitHub, you will see a **Use this Template** button.
 
 .. image:: /_static/images/github-use-template.jpg
-    :width: 400
+    :width: 600
     :alt: Use Template Button Image
 
 After clicking the **Use this Template** button, you should see the form popup that allows
@@ -54,7 +54,7 @@ you to enter the name and restrictions of the new repository.  Enter the informa
 form and click the **Create repository from template** button.
 
 .. image:: /_static/images/github-use-template-form.jpg
-    :width: 400
+    :width: 600
     :alt: Use Template Button Image
 
 

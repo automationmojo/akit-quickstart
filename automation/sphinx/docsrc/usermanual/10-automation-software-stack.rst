@@ -13,7 +13,7 @@ stack.  The diagram below and the descriptions in this section describe the auto
 software stack that the **Automation Kit** is meant to be a part of.
 
 .. image:: /_static/images/akit-integration-model.jpg
-  :width: 400
+  :width: 600
   :alt: Test Automation Software Stack
 
 The four layer software stack that is shown in the diagram helps to break down the
@@ -37,7 +37,7 @@ not closely aligned with the product under test, can be stored in repositories a
 deployed based on repository style deployment techniques.
 
 .. image:: /_static/images/testing-software-stack-alignment.jpg
-  :width: 400
+  :width: 600
   :alt: Product Alignment
 
 From the diagram you can see that the mid-tier and test code are the most closely
@@ -52,7 +52,7 @@ higher risk when it comes to code changes.  They also are shared and so have hig
 impact.
 
 .. image:: /_static/images/testing-software-stack-impact.jpg
-  :width: 400
+  :width: 600
   :alt: Risk and Impact
 
 The fact that we seperate out the higher impact code into different layers, means that
@@ -63,7 +63,7 @@ in the high impact code.  We can also put special layer appropriate testing proc
 in place for the code at the core and intergation layers.
 
 .. image:: /_static/images/testing-software-stack-testscopes.jpg
-  :width: 400
+  :width: 600
   :alt: Testing Scope
 
 The diagram above shows how we can establish appropriate testing patterns and practices
@@ -85,7 +85,7 @@ an integration layer and product layer that sits on top of the **AutomationKit**
 as depicted in the diagram below.
 
 .. image:: /_static/images/organization-test-software-stack.jpg
-  :width: 400
+  :width: 600
   :alt: Test Automation Software Stack
 
 The layout of the software stack shown above is critically important for creating a
@@ -122,7 +122,7 @@ required or utilized by the test run and provides the fixtures with an opportuni
 integrate any required resources.
 
 .. image:: /_static/images/akit-integration-model.jpg
-  :width: 400
+  :width: 600
   :alt: Integration Object Model
 
 .. note::
