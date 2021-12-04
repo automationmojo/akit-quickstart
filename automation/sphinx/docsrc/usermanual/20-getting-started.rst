@@ -2,6 +2,7 @@
 Getting Started
 ***************
 
+
 Preliminary Setup
 =================
 Before attempting to use the repository you will need to setup your development environment and machine.
@@ -26,13 +27,14 @@ Install the Recommended VSCode Plug-Ins
 * `vscode-icons`
 * `XML Tools`
 
+
 Repository Setup
 ================
 To get started working in the *ExOrg QA* environment, you will first need to clone the git repository.
 
 .. code-block:: bash
 
-    cd <source trees>/
+    cd (source-tree-folder)/
     git clone git@github.com:exorg/exorg-qa.git exorg-qa
     cd exorg-qa
 
@@ -60,6 +62,7 @@ opening the workspace located at.
 
 Note that the file above will not exist if you have not rehomed the repository.  You will only see ".template"
 files in the workspaces folder until you re-home the repository.
+
 
 Automation Environment Setup
 ============================
@@ -92,133 +95,7 @@ the following command.
 
     automation/integration/setup-environment
 
-After you have setup the environment, you are setup to run code.
-
-Landscape Setup
-===============
-The final part of setting up your automation environment is to tell the *ExOrg QA* environment about
-the devices and resources that are available for use by the automation environment.
-
-The automation environment is configured by using four files:
-
-* ~/akit/config/credentials.yaml
-* ~/akit/config/landscape.yaml
-* ~/akit/config/runtime.yaml
-* ~/akit/config/topology.yaml
-
-To create these files, first create the directory that the automation environment looks for these files
-in.
-
-.. code-block:: bash
-
-    mkdir -p ~/akit/config
-
-The following examples shows the basic configurations that you might see in the configuration
-files for the most basic automation environment setup. For a complete description of the available
-configuration settings you can follow the links to the complete documentation for each configuration
-file type.
-
-credentials.yaml
-----------------
-
-.. code-block:: yaml
-
-    credentials:
-        -   identifier: power
-            category: basic
-            username: ubuntu
-            password: PowerPower**
-
-        -   identifier: player-ssh
-            category: ssh
-            username: root
-            password: BlahBlah!!
-            primitive: True
+After you have setup the environment, you are setup to run code.  You can find out how to configure the
+automation environment by looking at the `Automation Configuration` page.
 
 
-landscape.yaml
---------------
-
-.. code-block:: yaml
-
-    environment:
-        label: production
-
-    pod:
-
-        # ================================================================================
-        # ================================================================================
-        #
-        #                             UPNP DEVICES
-        #
-        # ================================================================================
-        # ================================================================================
-        devices:
-
-            # ==========================================================
-            -   deviceType: network/upnp
-                deviceClass: player
-                upnp:
-                    USN: SOMEUSN_5CAAFD000C12
-                    modelNumber: Model1
-                    modelName: "First Device"
-                credentials:
-                -    player-ssh
-                features:
-                    isolation: false
-                skip: false
-
-        # ================================================================================
-        # ================================================================================
-        #
-        #                             POWER CONTROLLERS
-        #
-        # ================================================================================
-        # ================================================================================
-        power:
-
-            -   name: LPC934
-                powerType: DliPowerSwitch
-                model: LPC934
-                ip: 192.168.1.50
-                credential: power
-
-        # ================================================================================
-        # ================================================================================
-        #
-        #                            SERIAL CONCENTRATORS
-        #
-        # ================================================================================
-        # ================================================================================
-        serial:
-            -   name: test-controller
-                host: 192.168.1.30
-
-
-runtime.yaml
---------------
-
-.. code-block:: yaml
-
-    diagnostics:
-        archive:
-            - /opt/log/anacapa.trace
-            - /opt/log/netstartd.log
-            - /opt/log/ssdpd.log
-            - /opt/log/udhcpc.log
-
-    upnp:
-        exclude_interfaces:
-            - lo
-            - docker0
-            - vpn0
-            - br-16b3341898b9
-        subscriptions:
-            logged-events:
-                # Un-Comment to turn on UPNP Event logging
-                #"urn:schemas-upnp-org:service:DeviceProperties:1":
-                    #- SettingsReplicationState
-
-
-topology.yaml
---------------

@@ -4,6 +4,7 @@ User Manual
 
 .. toctree::
 
+   00-repository-branding
    10-automation-software-stack
    20-getting-started
    30-automation-configuration

@@ -24,8 +24,6 @@ path_parts = os.path.split(os.pathsep)
 if PACKAGES_DIR not in path_parts:
     sys.path.insert(0, PACKAGES_DIR)
 
-AKITQS_VERSION = '0.2'
-
 # -- Project information -----------------------------------------------------
 
 project = u'Automation Kit - Quick Start'
@@ -97,7 +95,7 @@ pygments_style = 'vim'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-# html_theme = 'alabaster'
+#html_theme = 'classic'
 html_theme = 'sphinx_rtd_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme

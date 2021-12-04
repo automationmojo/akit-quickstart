@@ -50,7 +50,7 @@ code.  Test code is often used to debug or step through scenarios and workflows
 in order to capture information about what is going on in the code that is the
 target of the tests.  Because test code is used so often in the debugger to
 perform investigations of product bugs and test issues, test code should only
-be optimized where there is sufficient data to show that a specific are of code
+be optimized where there is sufficient data to show that a specific area of code
 is having a big negative impact on the performance of the test runs.
 
 The reality of distributed automation frameworks is that they spend alot of
@@ -123,7 +123,7 @@ so statements like the ones below are also undesired in test code.
     some_function(data[0], data[1], data[2])
 
 A better way to get data items from a squence or list would be to expand the sequence
-to variables We like so:
+to variables like so:
 
 .. code-block:: python
 
