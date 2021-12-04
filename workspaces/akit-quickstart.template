@@ -33,7 +33,7 @@
             "${TMPLT:REPOSITORY_FOLDER}/automation/python3/packages",
             "${TMPLT:REPOSITORY_FOLDER}/automation/python3/tools"
         ],
-        "restructuredtext.confPath": "${TMPLT:REPOSITORY_FOLDER}/automation/sphinx/source",
+        "restructuredtext.confPath": "${TMPLT:REPOSITORY_FOLDER}/automation/sphinx/docsrc",
         "restructuredtext.builtDocumentationPath": "${TMPLT:REPOSITORY_FOLDER}/docs/html"
     }
 }
