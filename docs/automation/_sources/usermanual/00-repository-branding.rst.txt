@@ -29,7 +29,7 @@ that any organization can utilize to get headed in the right direction with
 distributed automation projects.
 
 To make it easy to get started, I created this github **Template** project. This
-template project makes it super easy to get started using the **AutomationKit**
+template project makes it super easy to get started using the **Automation Kit**
 for real world automation projects. This repository sets up the layed out of the
 code and establishes foundation patterns in order to setup a foundation that can
 support scaling. This repository avoids alot of pitfalls that show up a couple
@@ -46,7 +46,7 @@ Because the **Automation Kit Quick Start** repository is setup as a template rep
 you view it in GitHub, you will see a **Use this Template** button.
 
 .. image:: /_static/images/github-use-template.jpg
-    :width: 400
+    :width: 600
     :alt: Use Template Button Image
 
 After clicking the **Use this Template** button, you should see the form popup that allows
@@ -54,7 +54,7 @@ you to enter the name and restrictions of the new repository.  Enter the informa
 form and click the **Create repository from template** button.
 
 .. image:: /_static/images/github-use-template-form.jpg
-    :width: 400
+    :width: 600
     :alt: Use Template Button Image
 
 

@@ -2,7 +2,7 @@
 Topology File
 *************
 
-The **AutomationKit** currently does not have a fixed format for the topology
+The **Automation Kit** currently does not have a fixed format for the topology
 file. The topology file is intended for organizations to be able to configure
 landscape resources to the specific unique project specific states that apply
 to the uses of the devices and resources declared in the landscape.py file.

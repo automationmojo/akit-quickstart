@@ -75,14 +75,14 @@ You must setup the python virtual environment used by the automation code.  This
 run the VSCode task by selecting **Run**->**Task** as shown below.
 
 .. image:: /_static/images/vscode-run-task.png
-  :width: 400
+  :width: 600
   :alt: Run Task image
 
 When you click the **Task** menu item, then tasks menu will be shown.  You will select the task named 
 **Environment - Setup** or **Environment - Rest**.
 
 .. image:: /_static/images/vscode-task-run-environment-reset.png
-  :width: 400
+  :width: 600
   :alt: Select Environment Reset Task
 
 The reset task is used if you need to reset an environment that was previously setup.  It bypasses checks

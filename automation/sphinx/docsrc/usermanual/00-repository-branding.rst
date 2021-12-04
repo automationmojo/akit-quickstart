@@ -29,7 +29,7 @@ that any organization can utilize to get headed in the right direction with
 distributed automation projects.
 
 To make it easy to get started, I created this github **Template** project. This
-template project makes it super easy to get started using the **AutomationKit**
+template project makes it super easy to get started using the **Automation Kit**
 for real world automation projects. This repository sets up the layed out of the
 code and establishes foundation patterns in order to setup a foundation that can
 support scaling. This repository avoids alot of pitfalls that show up a couple
