@@ -59,7 +59,7 @@ form and click the **Create repository from template** button.
 
 
 Brand your Repository
-====================
+=====================
 Once you have create a new repository for your project or organization.  You need to change
 some things in the repository to brand it for your organziation.  The following sections
 describes the things that will need to be change in order to brand the repository for your
