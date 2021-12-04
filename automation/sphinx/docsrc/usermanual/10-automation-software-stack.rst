@@ -12,7 +12,7 @@ The **Automation Kit** is meant to serve as a foundation of an automation softwa
 stack.  The diagram below and the descriptions in this section describe the automation
 software stack that the **Automation Kit** is meant to be a part of.
 
-.. image:: /_static/images/akit-integration-model.jpg
+.. image:: /_static/images/testing-software-stack.jpg
   :width: 600
   :alt: Test Automation Software Stack
 
