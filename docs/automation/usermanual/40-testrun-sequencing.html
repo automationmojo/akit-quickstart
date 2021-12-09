@@ -50,7 +50,22 @@
 <li class="toctree-l2"><a class="reference internal" href="32-topology-file.html">Topology File</a></li>
 <li class="toctree-l2"><a class="reference internal" href="33-runtime-file.html">Runtime File</a></li>
 <li class="toctree-l2"><a class="reference internal" href="34-credentials-file.html">Credentials File</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Test Run Sequencing</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Test Run Sequencing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-test-discovery">STEP 1: Test Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-2-record-import-errors">STEP 2: Record Import Errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-3-integration-and-scope-attachement">STEP 3: Integration and Scope Attachement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-4-finalize-landscape-initialization">STEP 4: Finalize Landscape Initialization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-5-integration-and-scope-environment-preview">STEP 5: Integration and Scope Environment Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-6-resource-aquisition">STEP 6: Resource Aquisition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-7-finalize-landscape-activation">STEP 7: Finalize Landscape Activation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-8-establish-presence">STEP 8: Establish Presence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-9-pre-test-run-diagnostic">STEP 9: Pre Test Run Diagnostic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-10-generate-test-run-sequence-code">STEP 10: Generate Test Run Sequence Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-11-run-test-code">STEP 11: Run Test Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-12-post-test-run-diagnostic">STEP 12: Post Test Run Diagnostic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-13-process-and-publish-results">STEP 13: Process and Publish Results</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="41-integration-couplings.html">Integration Couplings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="42-scope-couplings.html">Scope Couplings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="50-functional-description.html">Functional Descriptions</a></li>
@@ -98,6 +113,88 @@
 <blockquote>
 <div><p><em>in-progress</em></p>
 </div></blockquote>
+<div class="section" id="step-1-test-discovery">
+<h2>STEP 1: Test Discovery<a class="headerlink" href="#step-1-test-discovery" title="Permalink to this headline"></a></h2>
+<p>We discover the tests first so we can build a listing of the Integration and Scope couplings.
+We don’t want to execute any test code, setup, or teardown code at this point.  We want to
+seperate out the integration code from the test code and run the integration code first so
+we can discover integration issues independant of the test code itself.</p>
+</div>
+<div class="section" id="step-2-record-import-errors">
+<h2>STEP 2: Record Import Errors<a class="headerlink" href="#step-2-record-import-errors" title="Permalink to this headline"></a></h2>
+<p>Tell the sequencer to record any import errors that happened during discovery of tests.  If a
+test file or dependent file failed to import then the test will just not be included in a run
+and this is a type of invisible error that we must plan for and highlight.</p>
+</div>
+<div class="section" id="step-3-integration-and-scope-attachement">
+<h2>STEP 3: Integration and Scope Attachement<a class="headerlink" href="#step-3-integration-and-scope-attachement" title="Permalink to this headline"></a></h2>
+<p>Call attach_to_framework on the sequencer to give all the couplings a chance to plug themselves
+into the automation framework.  This allows us to only integrate couplings that are being consumed
+by the tests AND also to only include couplings that are included in the test framework.  This
+give the opportunity for the couplings to trigger the startup of the coordinators that inter-operate
+with the test landscape and the associated devices.</p>
+</div>
+<div class="section" id="step-4-finalize-landscape-initialization">
+<h2>STEP 4: Finalize Landscape Initialization<a class="headerlink" href="#step-4-finalize-landscape-initialization" title="Permalink to this headline"></a></h2>
+<p>After all the couplings have had the opportunity to plug themselves into the test framework, we
+trigger the finalization of the test landscape initialization</p>
+</div>
+<div class="section" id="step-5-integration-and-scope-environment-preview">
+<h2>STEP 5: Integration and Scope Environment Preview<a class="headerlink" href="#step-5-integration-and-scope-environment-preview" title="Permalink to this headline"></a></h2>
+<p>Now that we have collected all the couplings and have a preview of the complexity of the automation
+run encoded into the coupling types collected. Allow the couplings to attach to the automation
+environment so they can get a preview of the parameters and configuration and provide us with an
+early indicator of any parameter or configuration issues.</p>
+<p>This is the final step of validating all the input information to the run and we are able to perform
+this step in the context of the integration code and outside of the execution of any test code</p>
+</div>
+<div class="section" id="step-6-resource-aquisition">
+<h2>STEP 6: Resource Aquisition<a class="headerlink" href="#step-6-resource-aquisition" title="Permalink to this headline"></a></h2>
+<p>All the couplings have had a chance to analyze the configuration information and provide us with a
+clear indication if there are any configuration issues.  Now provide the couplings with the opportunity
+to reach out to the automation infrastructure and checkout or collect any global shared resources
+that might be required for this automation run.</p>
+</div>
+<div class="section" id="step-7-finalize-landscape-activation">
+<h2>STEP 7: Finalize Landscape Activation<a class="headerlink" href="#step-7-finalize-landscape-activation" title="Permalink to this headline"></a></h2>
+<p>Finalize the activation process and transition the landscape to fully active where all APIs are
+available.</p>
+<p>Because the Automation Kit is a distrubuted automation test framework, we want to provide an early
+opportunity for all the integration and scope couplings to establish initial connectivity or first
+contact with the resources or devices that are being integrated into the automation run.</p>
+<p>This helps to ensure the reduction of automation failure noise due to configuration or environmental
+issues</p>
+</div>
+<div class="section" id="step-8-establish-presence">
+<h2>STEP 8: Establish Presence<a class="headerlink" href="#step-8-establish-presence" title="Permalink to this headline"></a></h2>
+<p>After we have established that we have good connectivity with all of the test landscape devices, we
+then want to give the integration couplings an opportunity to establish a presence of presistent
+functionality or services with the remote devices</p>
+</div>
+<div class="section" id="step-9-pre-test-run-diagnostic">
+<h2>STEP 9: Pre Test Run Diagnostic<a class="headerlink" href="#step-9-pre-test-run-diagnostic" title="Permalink to this headline"></a></h2>
+<p>Capture a pre-testrun diagnostic capture</p>
+</div>
+<div class="section" id="step-10-generate-test-run-sequence-code">
+<h2>STEP 10: Generate Test Run Sequence Code<a class="headerlink" href="#step-10-generate-test-run-sequence-code" title="Permalink to this headline"></a></h2>
+<p>Generate the test run sequence document that will be used or the run.</p>
+</div>
+<div class="section" id="step-11-run-test-code">
+<h2>STEP 11: Run Test Code<a class="headerlink" href="#step-11-run-test-code" title="Permalink to this headline"></a></h2>
+<p>The startup phase is over, up to this point we have mostly been executing integration code
+and configuration analysis code that is embedded into mostly class level methods.</p>
+<p>Now we start going through all the test testpacks and tests and start instantiating test scopes
+and instances and start executing setup, teardown and test level code</p>
+</div>
+<div class="section" id="step-12-post-test-run-diagnostic">
+<h2>STEP 12: Post Test Run Diagnostic<a class="headerlink" href="#step-12-post-test-run-diagnostic" title="Permalink to this headline"></a></h2>
+<p>Capture a post-testrun diagnostic capture</p>
+</div>
+<div class="section" id="step-13-process-and-publish-results">
+<h2>STEP 13: Process and Publish Results<a class="headerlink" href="#step-13-process-and-publish-results" title="Permalink to this headline"></a></h2>
+<p>This is where we do any final processing and or publishing of results. We might also want to
+add automated bug filing here later.</p>
+</div>
 </div>
 
 

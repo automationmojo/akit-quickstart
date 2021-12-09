@@ -151,7 +151,8 @@
 <li class="toctree-l2"><a class="reference internal" href="31-landscape-file.html#description">Description</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="31-landscape-file.html#environment-section">Environment Section</a></li>
 <li class="toctree-l3"><a class="reference internal" href="31-landscape-file.html#pod-section">Pod Section</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="31-landscape-file.html#devices-sub-section">Devices Sub-Section</a></li>
+<li class="toctree-l4"><a class="reference internal" href="31-landscape-file.html#ssh-devices">SSH Devices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="31-landscape-file.html#upnp-devices">UPNP Devices</a></li>
 <li class="toctree-l4"><a class="reference internal" href="31-landscape-file.html#power-sub-section">Power Sub-Section</a></li>
 <li class="toctree-l4"><a class="reference internal" href="31-landscape-file.html#serial-sub-section">Serial Sub-Section</a></li>
 </ul>
@@ -185,7 +186,22 @@
 <li class="toctree-l2"><a class="reference internal" href="34-credentials-file.html#description">Description</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="40-testrun-sequencing.html">Test Run Sequencing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="40-testrun-sequencing.html">Test Run Sequencing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="40-testrun-sequencing.html#step-1-test-discovery">STEP 1: Test Discovery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="40-testrun-sequencing.html#step-2-record-import-errors">STEP 2: Record Import Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="40-testrun-sequencing.html#step-3-integration-and-scope-attachement">STEP 3: Integration and Scope Attachement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="40-testrun-sequencing.html#step-4-finalize-landscape-initialization">STEP 4: Finalize Landscape Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="40-testrun-sequencing.html#step-5-integration-and-scope-environment-preview">STEP 5: Integration and Scope Environment Preview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="40-testrun-sequencing.html#step-6-resource-aquisition">STEP 6: Resource Aquisition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="40-testrun-sequencing.html#step-7-finalize-landscape-activation">STEP 7: Finalize Landscape Activation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="40-testrun-sequencing.html#step-8-establish-presence">STEP 8: Establish Presence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="40-testrun-sequencing.html#step-9-pre-test-run-diagnostic">STEP 9: Pre Test Run Diagnostic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="40-testrun-sequencing.html#step-10-generate-test-run-sequence-code">STEP 10: Generate Test Run Sequence Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="40-testrun-sequencing.html#step-11-run-test-code">STEP 11: Run Test Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="40-testrun-sequencing.html#step-12-post-test-run-diagnostic">STEP 12: Post Test Run Diagnostic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="40-testrun-sequencing.html#step-13-process-and-publish-results">STEP 13: Process and Publish Results</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="41-integration-couplings.html">Integration Couplings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="42-scope-couplings.html">Scope Couplings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="50-functional-description.html">Functional Descriptions</a></li>
@@ -222,6 +238,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="100-coding-standards.html#multiline-error-message-formation">Multiline Error Message Formation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="100-coding-standards.html#stable-property-implementations">Stable Property Implementations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="100-coding-standards.html#dont-run-commands-via-ssh">Dont Run Commands Via SSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="100-coding-standards.html#dont-call-methods-that-proxy-across-threads">Dont Call Methods that Proxy Across Threads</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="100-coding-standards.html#return-statements">Return Statements</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="100-coding-standards.html#formation-of-appended-functionality">Formation of Appended Functionality</a></li>
 <li class="toctree-l3"><a class="reference internal" href="100-coding-standards.html#line-number-for-debugging">Line Number for Debugging</a></li>
