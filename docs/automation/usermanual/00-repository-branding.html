@@ -17,7 +17,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Test Automation Software Stack" href="10-automation-software-stack.html" />
+    <link rel="next" title="Design and Architectural Overview" href="10-design-and-architecture-overview.html" />
     <link rel="prev" title="User Manual" href="usermanual.html" /> 
 </head>
 
@@ -51,7 +51,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="10-automation-software-stack.html">Test Automation Software Stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-design-and-architecture-overview.html">Design and Architectural Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="20-getting-started.html">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="30-automation-configuration.html">Automation Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="31-landscape-file.html">Landscape File</a></li>
@@ -70,7 +70,7 @@
 <li class="toctree-l2"><a class="reference internal" href="70-enterprise-extensibility.html">Enterprise Extensibility</a></li>
 <li class="toctree-l2"><a class="reference internal" href="80-command-line.html">Command-Line</a></li>
 <li class="toctree-l2"><a class="reference internal" href="90-code-organization-and-conventions.html">Code Organization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="100-coding-standards.html">Coding Standards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="100-coding-standards.html">Coding Standards and Patterns</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../apidoc/modules.html">exorg</a></li>
@@ -103,15 +103,15 @@
              
   <div class="section" id="repository-branding">
 <h1>Repository Branding<a class="headerlink" href="#repository-branding" title="Permalink to this headline"></a></h1>
-<p>The <em>Automation Kit QuickStart</em> repository written to help organizations get
+<p>The <em>Automation Kit QuickStart</em> repository is written to help organizations get
 automation efforts off the ground and headed in the right direction quickly.</p>
 <p>Getting an enterprise grade automation project off the ground that is capable of
 scaling to meet the needs of large and diverse software projects can take a
-significant amount time and effort. Learning how to setup a really effective
-enterprise class automation project that scales to meet the needs of a large
-software projects takes alot of trial and error and most likely lots of
-refactoring as you learn more about the unexpected challenges that complexed
-automation projects can throw at you.</p>
+significant amount time and effort not to mention knowledge and experience.
+Learning how to setup a really effective enterprise class automation project
+that scales to meet the needs of a large software projects takes alot of trial
+and error and most likely lots of refactoring as you learn more about the unexpected
+challenges that complexed automation projects can throw at you.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you are not refactoring at regular intervals when red flags start popping
@@ -123,17 +123,19 @@ moderately sized issues before they become major or unfixable issues.</p>
 <p>Luckily, I have already learned alot of those lessons while building distributed
 automation frameworks for a very large and complex software project.  The many
 years and long hours analyzing problems and writing code are one of the
-reasons I set out to write the <em>AutomationKit</em> framework. To have a set of tools
-that any organization can utilize to get headed in the right direction with
-distributed automation projects.</p>
+reasons I set out to write the <strong>Automation Kit</strong> framework. It takes a tremendous
+amount of time and effort to work through all the complexed scenarios and issues
+that need to be addressed in order to build a really robust framework.  Its for
+this reason that I set out to build a set of tools that any organization can utilize
+to get headed in the right direction with distributed automation projects.</p>
 <p>To make it easy to get started, I created this github <strong>Template</strong> project. This
 template project makes it super easy to get started using the <strong>Automation Kit</strong>
-for real world automation projects. This repository sets up the layed out of the
-code and establishes foundation patterns in order to setup a foundation that can
-support scaling. This repository avoids alot of pitfalls that show up a couple
-years into automation projects and hopefully will help you achieve significant
-scale without needing to do a major refactor when its time to get to that next
-level.</p>
+for real world automation projects. This repository sets up the layout of the
+code and establishes code patterns in order to setup a foundation that can
+support scaling. This repository is designed to avoid alot of pitfalls that show
+up a couple years into automation projects and hopefully will help you achieve
+significant scale without needing to do a major refactor when its time to get to
+that next level.</p>
 <p>In order to brand this repository for your software project and organization, follow
 these simple steps.</p>
 <div class="section" id="create-your-repository">
@@ -148,7 +150,7 @@ form and click the <strong>Create repository from template</strong> button.</p>
 </div>
 <div class="section" id="brand-your-repository">
 <h2>Brand your Repository<a class="headerlink" href="#brand-your-repository" title="Permalink to this headline"></a></h2>
-<p>Once you have create a new repository for your project or organization.  You need to change
+<p>Once you have created a new repository for your project or organization.  You need to change
 some things in the repository to brand it for your organziation.  The following sections
 describes the things that will need to be change in order to brand the repository for your
 organization.</p>
@@ -194,9 +196,20 @@ and do not conflict with packages that your organization might release as extern
 packages.</p>
 <p>We also want to make sure we have a software stack namespace component such as <em>core</em>
 and <em>product</em> because we don’t want the code from seperate packages to get mixed together in
-virtual environments if we end up installing the code as python packages.   By have an stack
-level component in the name, we ensure that the code from each layer of the software stack has
-its own directory root directory in the installed site-packages folder.</p>
+virtual environments if we end up installing the code as python packages later on.   By having a
+software stack level component in the name, we ensure that the code from each layer of the software
+stack has its own directory root directory in the installed site-packages folder and that the code
+from different layers is not intermigled when the packages are installed.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are alot of patterns around code organization and naming conventions that are utilized
+which may not have an obvious reasons.  This is the kind of minor details that you have to
+either have experience with or really use forward thinking to catch before they cause an issue.
+Negative code patterns can cause problems as your code base gets larger and when negative
+patterns are allowed to linger too long they are very fix.  This is especially true in a large
+code base that is being consumed by alot of engineers.  I cannot stress enough to really
+think ahead and organize your code for scale.</p>
+</div>
 </div>
 </div>
 </div>
@@ -206,7 +219,7 @@ its own directory root directory in the installed site-packages folder.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="usermanual.html" class="btn btn-neutral float-left" title="User Manual" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="10-automation-software-stack.html" class="btn btn-neutral float-right" title="Test Automation Software Stack" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="10-design-and-architecture-overview.html" class="btn btn-neutral float-right" title="Design and Architectural Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

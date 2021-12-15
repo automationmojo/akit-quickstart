@@ -2,16 +2,16 @@
 Repository Branding
 *******************
 
-The *Automation Kit QuickStart* repository written to help organizations get
+The *Automation Kit QuickStart* repository is written to help organizations get
 automation efforts off the ground and headed in the right direction quickly.
 
 Getting an enterprise grade automation project off the ground that is capable of
 scaling to meet the needs of large and diverse software projects can take a
-significant amount time and effort. Learning how to setup a really effective
-enterprise class automation project that scales to meet the needs of a large
-software projects takes alot of trial and error and most likely lots of
-refactoring as you learn more about the unexpected challenges that complexed
-automation projects can throw at you.
+significant amount time and effort not to mention knowledge and experience.
+Learning how to setup a really effective enterprise class automation project
+that scales to meet the needs of a large software projects takes alot of trial
+and error and most likely lots of refactoring as you learn more about the unexpected
+challenges that complexed automation projects can throw at you.
 
 .. note::
 
@@ -24,18 +24,20 @@ automation projects can throw at you.
 Luckily, I have already learned alot of those lessons while building distributed
 automation frameworks for a very large and complex software project.  The many
 years and long hours analyzing problems and writing code are one of the
-reasons I set out to write the *AutomationKit* framework. To have a set of tools
-that any organization can utilize to get headed in the right direction with
-distributed automation projects.
+reasons I set out to write the **Automation Kit** framework. It takes a tremendous
+amount of time and effort to work through all the complexed scenarios and issues
+that need to be addressed in order to build a really robust framework.  Its for
+this reason that I set out to build a set of tools that any organization can utilize
+to get headed in the right direction with distributed automation projects.
 
 To make it easy to get started, I created this github **Template** project. This
 template project makes it super easy to get started using the **Automation Kit**
-for real world automation projects. This repository sets up the layed out of the
-code and establishes foundation patterns in order to setup a foundation that can
-support scaling. This repository avoids alot of pitfalls that show up a couple
-years into automation projects and hopefully will help you achieve significant
-scale without needing to do a major refactor when its time to get to that next
-level.
+for real world automation projects. This repository sets up the layout of the
+code and establishes code patterns in order to setup a foundation that can
+support scaling. This repository is designed to avoid alot of pitfalls that show
+up a couple years into automation projects and hopefully will help you achieve
+significant scale without needing to do a major refactor when its time to get to
+that next level.
 
 In order to brand this repository for your software project and organization, follow
 these simple steps.
@@ -60,7 +62,7 @@ form and click the **Create repository from template** button.
 
 Brand your Repository
 =====================
-Once you have create a new repository for your project or organization.  You need to change
+Once you have created a new repository for your project or organization.  You need to change
 some things in the repository to brand it for your organziation.  The following sections
 describes the things that will need to be change in order to brand the repository for your
 organization.
@@ -118,7 +120,18 @@ packages.
 
 We also want to make sure we have a software stack namespace component such as *core*
 and *product* because we don't want the code from seperate packages to get mixed together in
-virtual environments if we end up installing the code as python packages.   By have an stack
-level component in the name, we ensure that the code from each layer of the software stack has
-its own directory root directory in the installed site-packages folder.
+virtual environments if we end up installing the code as python packages later on.   By having a
+software stack level component in the name, we ensure that the code from each layer of the software
+stack has its own directory root directory in the installed site-packages folder and that the code
+from different layers is not intermigled when the packages are installed.
+
+.. note::
+
+    There are alot of patterns around code organization and naming conventions that are utilized
+    which may not have an obvious reasons.  This is the kind of minor details that you have to
+    either have experience with or really use forward thinking to catch before they cause an issue.
+    Negative code patterns can cause problems as your code base gets larger and when negative
+    patterns are allowed to linger too long they are very fix.  This is especially true in a large
+    code base that is being consumed by alot of engineers.  I cannot stress enough to really
+    think ahead and organize your code for scale.
 
