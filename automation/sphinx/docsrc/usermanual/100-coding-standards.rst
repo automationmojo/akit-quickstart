@@ -1,6 +1,6 @@
-****************
-Coding Standards
-****************
+*****************************
+Coding Standards and Patterns
+*****************************
 
 **in-progress**
 
@@ -10,7 +10,7 @@ Sections
   * `Code Optimization`_
   * `Multiline Error Message Formation`_
   * `Return Statements`_
-  * `Persistance Decorators`_
+  * `InterOp and Persistance Decorators`_
 
 Class Variable Initialization
 =============================
@@ -603,7 +603,7 @@ of code.
 For consistency and to help resolve all of these issues, I prefer to use returns on all of my functions
 and methods.  Any function or method that is not a generator, since generators don't have returns.
 
-Persistance Decorators
+InterOp and Persistance Decorators
 ======================
 Distributed automation scenarios engage in an aweful lot of interop activity.  When your engaging in
 any type of interop activity, there can be problems with reliability.  One of the major aspects of
