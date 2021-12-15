@@ -693,6 +693,7 @@ the behavior modification parameters.  Here is an example of a way to handle thi
 nicely.
 
 .. code-block:: python
+
   class Aspects:
       """
           Aspects are utilized with the interop APIs and agents such as the :class:`SSHAgent` class in order
@@ -740,7 +741,7 @@ the test code control of the behavior of the code making the remote interop REMO
   def delete_member(id: int, sync: bool=True, aspects: Aspects=DEFAULT_ASPECTS):
       return
 
-  def get_members(, aspects: Aspects=DEFAULT_ASPECTS) -> List[str]:
+  def get_members(aspects: Aspects=DEFAULT_ASPECTS) -> List[str]:
       return
 
   def rename_member(id: int, new_name: str, old_name: str, sync: bool=True, aspects: Aspects=DEFAULT_ASPECTS):
