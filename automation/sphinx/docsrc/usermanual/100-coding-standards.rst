@@ -12,9 +12,26 @@ Sections
   * `Return Statements`_
   * `InterOp and Persistance Decorators`_
 
+Zen of Python Testing
+=====================
+* It doesn't matter how beautiful the code is, beauty is in the eye of the beholder
+* Readability is important
+* Debuggability is paramount
+* Scalability and maintainability are critical
+* Test code is an instrument for the orchestration of product code
+* Flat is better than Nested
+* Sparse is better than Dense
+* Explicit is better than Implicit
+* Simple is better than Complex
+* Bad coding patterns proliferate
+* Stability is more important than Performance
+* Errors should never pass silently, unless explicitly handled and silenced
+* If the implementation is hard to explain, follow or maintainer, try thinking of another way
+* If the implementation is easy to explain, follow and maintain, it may be a good idea
+
 Class Variable Initialization
 =============================
-All variables must be initialized the constructor of the class.
+All variables must be initialized in the constructor of the class.
 
 .. code-block:: python
 
@@ -66,16 +83,16 @@ can exhibit more of the desired characteristics list above.
 * Compound return statements
 
 I cannot stress enough that if poor test coding styles are used too much in a
-large code base and if the practice goes on for too long.  The code will be
-difficult to work in and the productivity of the consumers of the test code
-will be greatly impacted.
+large code base and if the practice goes on for too long.  The negative coding
+patterns proliferate and make the code difficult to work in and the productivity
+of the consumers of the test code will be greatly impacted.
 
 One Liners and Brevity Shortcuts
 --------------------------------
 
 One liners and code written with the intent of being brief are not allowed and
-or discourage in the automation code.  This is because ensuring the automation
-code can be easily run and stepped through in the debugger is a primary requirment.
+or highly discourage in the automation code.  This is because ensuring the automation
+code can be easily run and stepped through in the debugger is a primary requirement.
 Simple list comprehensions that get assigned to a local variable are ok such as:
 
 .. code-block:: python
@@ -423,8 +440,8 @@ In the case above, python will not execute the stagling code and will not append
 to the `say_hello` method.  Also, the python linter can show the remaining code body for `say_world`
 as dead code or unreachable code and complain when it tries to lint the code in the file.
 
-Line Number for Debugging
--------------------------
+Line Numbers for Debugging
+--------------------------
 A very important aspect of test code is debuggability.  In order to be able to inspect the results
 of a function before it returns, you need a line of code to hang a breakpoint on. By stopping the
 debugger on the return statement, you can see the values of the inputs to the function and values
@@ -747,10 +764,10 @@ the test code control of the behavior of the code making the remote interop REMO
   def rename_member(id: int, new_name: str, old_name: str, sync: bool=True, aspects: Aspects=DEFAULT_ASPECTS):
       return
 
-Now to lets say we need to add a new parameter to all 500 of our interop APIs, we don't need to modify
+Now lets say we need to add a new parameter to all 500 of our interop APIs, we don't need to modify
 any of the 500 API function signatures.  To add the new behavior control, we modify the `Aspects` object
 and we modify the lower level remote interop REMOTE-API calling code. Our maintenance headache of modifying
 all 500 APIs to add a new behavior is eliminated.
 
-This pattern scales well and very very very important aspects of how we write code is that it
-needs to be consumable, reliable and must be maintainable at scale.
+This pattern is a perfect example of a code pattern that scales very well and scale is a very very very critical
+aspect of how we write test code.
