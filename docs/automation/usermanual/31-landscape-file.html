@@ -105,12 +105,12 @@
            <div itemprop="articleBody">
              
   <div class="section" id="landscape-file">
-<h1>Landscape File<a class="headerlink" href="#landscape-file" title="Permalink to this headline"></a></h1>
+<span id="id1"></span><h1>Landscape File<a class="headerlink" href="#landscape-file" title="Permalink to this headline"></a></h1>
 <div class="section" id="location">
 <h2>Location<a class="headerlink" href="#location" title="Permalink to this headline"></a></h2>
 <p>The default location where the <strong>Automation Kit</strong> will look for the <em>landscape.yaml</em> file
 is:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>~/akit/config/landscape.yaml
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>~/akit/config/landscapes/default-landscape.yaml
 </pre></div>
 </div>
 </div>
@@ -133,68 +133,17 @@ on the commandline.</p>
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline"></a></h2>
 <div class="section" id="environment-section">
 <h3>Environment Section<a class="headerlink" href="#environment-section" title="Permalink to this headline"></a></h3>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">environment</span><span class="p">:</span>
-    <span class="nt">label</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">production</span>
-</pre></div>
-</div>
 </div>
 <div class="section" id="pod-section">
 <h3>Pod Section<a class="headerlink" href="#pod-section" title="Permalink to this headline"></a></h3>
-<p>The pod section allows you to specify physical resources that are available in the AutomationPod that need to be
-configured and can be used for the automation run.</p>
-<div class="section" id="ssh-devices">
-<h4>SSH Devices<a class="headerlink" href="#ssh-devices" title="Permalink to this headline"></a></h4>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">pod</span><span class="p">:</span>
-    <span class="nt">devices</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span>   <span class="nt">deviceType</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">network/ssh</span>
-            <span class="nt">host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">192.168.1.30</span>
-            <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">linux</span>
-            <span class="nt">credentials</span><span class="p">:</span>
-            <span class="p p-Indicator">-</span>    <span class="l l-Scalar l-Scalar-Plain">casey-node</span>
-            <span class="nt">features</span><span class="p">:</span>
-                <span class="nt">isolation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-            <span class="nt">skip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="upnp-devices">
-<h4>UPNP Devices<a class="headerlink" href="#upnp-devices" title="Permalink to this headline"></a></h4>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">pod</span><span class="p">:</span>
-    <span class="nt">devices</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span>   <span class="nt">deviceType</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">network/upnp</span>
-            <span class="nt">deviceClass</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">player</span>
-            <span class="nt">upnp</span><span class="p">:</span>
-                <span class="nt">USN</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOMEUSN_5CAAFD000C12</span>
-                <span class="nt">modelNumber</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Model1</span>
-                <span class="nt">modelName</span><span class="p">:</span> <span class="s">&quot;First</span><span class="nv"> </span><span class="s">Device&quot;</span>
-            <span class="nt">credentials</span><span class="p">:</span>
-            <span class="p p-Indicator">-</span>    <span class="l l-Scalar l-Scalar-Plain">player-ssh</span>
-            <span class="nt">features</span><span class="p">:</span>
-                <span class="nt">isolation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-            <span class="nt">skip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-</pre></div>
-</div>
+<div class="section" id="devices-sub-section">
+<h4>Devices Sub-Section<a class="headerlink" href="#devices-sub-section" title="Permalink to this headline"></a></h4>
 </div>
 <div class="section" id="power-sub-section">
 <h4>Power Sub-Section<a class="headerlink" href="#power-sub-section" title="Permalink to this headline"></a></h4>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">pod</span><span class="p">:</span>
-    <span class="nt">serial</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span>   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test-controller</span>
-            <span class="nt">host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">192.168.1.30</span>
-</pre></div>
-</div>
 </div>
 <div class="section" id="serial-sub-section">
 <h4>Serial Sub-Section<a class="headerlink" href="#serial-sub-section" title="Permalink to this headline"></a></h4>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">pod</span><span class="p">:</span>
-    <span class="nt">power</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span>   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LPC934</span>
-            <span class="nt">powerType</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DliPowerSwitch</span>
-            <span class="nt">model</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LPC934</span>
-            <span class="nt">ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">192.168.1.50</span>
-            <span class="nt">credential</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">power</span>
-</pre></div>
-</div>
 </div>
 </div>
 <div class="section" id="full-example">

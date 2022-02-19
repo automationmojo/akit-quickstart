@@ -1,3 +1,5 @@
+.. _31-landscape-file:
+
 **************
 Landscape File
 **************
@@ -9,7 +11,7 @@ is:
 
 .. code-block:: text
 
-    ~/akit/config/landscape.yaml
+    ~/akit/config/landscapes/default-landscape.yaml
 
 
 Environment Variable
@@ -37,74 +39,19 @@ Description
 Environment Section
 -------------------
 
-.. code-block:: yaml
-
-    environment:
-        label: production
 
 Pod Section
 -----------
-The pod section allows you to specify physical resources that are available in the AutomationPod that need to be
-configured and can be used for the automation run.
 
-SSH Devices
+Devices Sub-Section
 +++++++++++++++++++
-
-.. code-block:: yaml
-
-    pod:
-        devices:
-            -   deviceType: network/ssh
-                host: 192.168.1.30
-                platform: linux
-                credentials:
-                -    casey-node
-                features:
-                    isolation: true
-                skip: false
-
-UPNP Devices
-+++++++++++++++++++
-
-.. code-block:: yaml
-
-    pod:
-        devices:
-            -   deviceType: network/upnp
-                deviceClass: player
-                upnp:
-                    USN: SOMEUSN_5CAAFD000C12
-                    modelNumber: Model1
-                    modelName: "First Device"
-                credentials:
-                -    player-ssh
-                features:
-                    isolation: false
-                skip: false
-
 
 Power Sub-Section
 +++++++++++++++++
 
-.. code-block:: yaml
-
-    pod:
-        serial:
-            -   name: test-controller
-                host: 192.168.1.30
-
 Serial Sub-Section
 ++++++++++++++++++
 
-.. code-block:: yaml
-
-    pod:
-        power:
-            -   name: LPC934
-                powerType: DliPowerSwitch
-                model: LPC934
-                ip: 192.168.1.50
-                credential: power
 
 Full Example
 ------------

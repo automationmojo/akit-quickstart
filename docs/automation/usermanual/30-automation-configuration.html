@@ -46,23 +46,27 @@
 <li class="toctree-l2"><a class="reference internal" href="10-design-and-architecture-overview.html">Design and Architectural Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="20-getting-started.html">Getting Started</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Automation Configuration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#credential-configuration">Credential Configuration</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#credentials-yaml">credentials.yaml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#default-configuration">Default Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#environment-variables">Environment Variables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#build-information">Build Information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#job-runtime-configuration">Job Runtime Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#logging-configuration">Logging Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#debug-options">Debug Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#files-and-directories">Files and Directories</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#landscape-overrides">Landscape Overrides</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#results-customization">Results Customization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extensibility-customizations">Extensibility Customizations</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#runtime-configuration">Runtime Configuration</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#default-configuration">Default Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id1">Runtime Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#runtime-yaml">runtime.yaml</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#environment-variables">Environment Variables</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#commandline-options">Commandline Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-files">Configuration Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#landscape-file">Landscape File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#topology-file">Topology File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#runtime-file">Runtime File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#credential-file">Credential File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user-file">User File</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#landscape-and-topology-configuration">Landscape and Topology Configuration</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#landscape-yaml">landscape.yaml</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#topology-yaml">topology.yaml</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#commandline-options">Commandline Options</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="31-landscape-file.html">Landscape File</a></li>
@@ -113,38 +117,9 @@
            <div itemprop="articleBody">
              
   <div class="section" id="automation-configuration">
-<h1>Automation Configuration<a class="headerlink" href="#automation-configuration" title="Permalink to this headline"></a></h1>
+<span id="id1"></span><h1>Automation Configuration<a class="headerlink" href="#automation-configuration" title="Permalink to this headline"></a></h1>
 <p>The <em>Automation Kit</em> is designed to be intergated into an organizations continuous
-integration system.  The behavior, control and integration of the automation environment
-is accomplished through the use of a combination of the following configuration types:</p>
-<ul class="simple">
-<li><p>Credential Configuration</p></li>
-<li><p>Runtime Configuration</p></li>
-<li><p>Landscape Configuration</p></li>
-<li><p>Topology Configuration</p></li>
-</ul>
-<div class="section" id="credential-configuration">
-<h2>Credential Configuration<a class="headerlink" href="#credential-configuration" title="Permalink to this headline"></a></h2>
-<div class="section" id="credentials-yaml">
-<h3>credentials.yaml<a class="headerlink" href="#credentials-yaml" title="Permalink to this headline"></a></h3>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">credentials</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span>   <span class="nt">identifier</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">power</span>
-        <span class="nt">category</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">basic</span>
-        <span class="nt">username</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu</span>
-        <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">PowerPower**</span>
-
-    <span class="p p-Indicator">-</span>   <span class="nt">identifier</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">player-ssh</span>
-        <span class="nt">category</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ssh</span>
-        <span class="nt">username</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
-        <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">BlahBlah!!</span>
-        <span class="nt">primitive</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="runtime-configuration">
-<h2>Runtime Configuration<a class="headerlink" href="#runtime-configuration" title="Permalink to this headline"></a></h2>
-<p>The automation kit can be configured by using environment variables,
+integration system.  The automation kit can be configured by using environment variables,
 commandline options, and through configuration files.  When the same option is configurable
 via more than one of these mechanisms, the automation kit will prioritize the setting
 based on precidence.  The precidence which the automation kit uses from lowest to highest
@@ -158,125 +133,130 @@ for settings is:</p>
 </ul>
 </div></blockquote>
 <p>So by default if nothing is passed for a setting, the <em>Automation Kit</em> will utilize default
-settings for the activation mode that is being used.  Activation modes are discussed in the
+settings for the activation mode that is being used.  Activation modes provide a quick way to
+spin up various types of automation applications and services.  The activation modes supported are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Command - Command line logging semantics</p></li>
+<li><p>Console - Interactive console</p></li>
+<li><p>Service - Web service and micro-services</p></li>
+<li><p>TestRun - Test Automation run</p></li>
+</ul>
+</div></blockquote>
+<p>The Activation modes are discussed in more detail in the
 <a class="reference external" href="https://github.com/automationmojo/automationkit/blob/main/docs/markdown/51-activation-and-startup.md">Activation and Startup</a>
 section of the documentation.</p>
 <div class="section" id="default-configuration">
-<h3>Default Configuration<a class="headerlink" href="#default-configuration" title="Permalink to this headline"></a></h3>
-</div>
-<div class="section" id="id1">
-<h3>Runtime Configuration<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h3>
-</div>
-<div class="section" id="runtime-yaml">
-<h3>runtime.yaml<a class="headerlink" href="#runtime-yaml" title="Permalink to this headline"></a></h3>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">diagnostics</span><span class="p">:</span>
-    <span class="nt">archive</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/opt/log/anacapa.trace</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/opt/log/netstartd.log</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/opt/log/ssdpd.log</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/opt/log/udhcpc.log</span>
-
-<span class="nt">upnp</span><span class="p">:</span>
-    <span class="nt">exclude_interfaces</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">lo</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">docker0</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">vpn0</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">br-16b3341898b9</span>
-    <span class="nt">subscriptions</span><span class="p">:</span>
-        <span class="nt">logged-events</span><span class="p">:</span>
-            <span class="c1"># Un-Comment to turn on UPNP Event logging</span>
-            <span class="c1">#&quot;urn:schemas-upnp-org:service:DeviceProperties:1&quot;:</span>
-                <span class="c1">#- SettingsReplicationState</span>
-</pre></div>
-</div>
+<h2>Default Configuration<a class="headerlink" href="#default-configuration" title="Permalink to this headline"></a></h2>
+<p>The default configuration for the <em>Automation Kit</em> provides easy setup for individual contributors to
+help ensure the proficiency of the many individual contributors of the automation organization.  The
+default configuration provides generic settings for automation framework behaviors and configuration file
+locations.</p>
 </div>
 <div class="section" id="environment-variables">
-<h3>Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline"></a></h3>
+<h2>Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline"></a></h2>
+<div class="section" id="build-information">
+<h3>Build Information<a class="headerlink" href="#build-information" title="Permalink to this headline"></a></h3>
+<blockquote>
+<div><p>AKIT_BUILD_BRANCH = The name of the branch to associate with results. Default is “unknown”
+AKIT_BUILD_FLAVOR = The label for the flavor of the build to associated with the results. Default is “unknown”
+AKIT_BUILD_NAME = The build name or build number to associate with the results.”unknown”</p>
+</div></blockquote>
+</div>
+<div class="section" id="job-runtime-configuration">
+<h3>Job Runtime Configuration<a class="headerlink" href="#job-runtime-configuration" title="Permalink to this headline"></a></h3>
+<blockquote>
+<div><p>AKIT_JOBTYPE = The type of run. “unknown”
+AKIT_RUNID = A guid that is used to uniquely identify and correlate the run results.
+AKIT_SERVICE_NAME = A service name used when the Automation Kit environment is activated as a service.
+AKIT_STARTTIME = The start time to use for correlating results.</p>
+</div></blockquote>
+</div>
+<div class="section" id="logging-configuration">
+<h3>Logging Configuration<a class="headerlink" href="#logging-configuration" title="Permalink to this headline"></a></h3>
+<blockquote>
+<div><p>AKIT_LOG_LEVEL_CONSOLE = The maximum logging level to send to the console output.
+AKIT_LOG_LEVEL_FILE = The maximum logging level to send to the primary log file.</p>
+</div></blockquote>
+</div>
+<div class="section" id="debug-options">
+<h3>Debug Options<a class="headerlink" href="#debug-options" title="Permalink to this headline"></a></h3>
+<blockquote>
+<div><p>AKIT_BREAKPOINTS = A comma seperated list of wellknown breakpoints.
+AKIT_DEBUGGER = The name of a debug to activate on for the run.</p>
+<p>AKIT_TIMETRAVEL = Activates time travel debugging for the run.
+AKIT_TIMEPORTALS = A comman seperated list of wellknown time portals to activate for the run.</p>
+</div></blockquote>
+</div>
+<div class="section" id="files-and-directories">
+<h3>Files and Directories<a class="headerlink" href="#files-and-directories" title="Permalink to this headline"></a></h3>
+<blockquote>
+<div><p>AKIT_HOME_DIRECTORY = The base directory of the automation inputs and outputs “~/akit”.
+AKIT_TESTROOT = The base directory of the test root folder.</p>
+<p>AKIT_CONFIG_DIRECTORY = The base directory for automation configuration “~/akit/config”.
+AKIT_CONFIG_CREDENTIALS = The credential configuration file. “~/akit/config/credentials.yaml”</p>
+<p>AKIT_CONFIG_LANDSCAPE_NAME = The base name of the landscape configuration file. “default-landscape”
+AKIT_CONFIG_LANDSCAPE = The landscape configuration file. “~/akit/config/landscapes/{AKIT_CONFIG_LANDSCAPE_NAME}.yaml”</p>
+<p>AKIT_CONFIG_RUNTIME_NAME = The base name of the runtime configuration file. “default-runtime”
+AKIT_CONFIG_RUNTIME = The runtime configuration file. “~/akit/config/runtimes/{AKIT_CONFIG_RUNTIME_NAME}.yaml”</p>
+<p>AKIT_CONFIG_TOPOLOGY_NAME = The base name of the topology configuration file. “default-topology”
+AKIT_CONFIG_TOPOLOGY = The topology configuration file. “~/akit/config/topologies/{AKIT_CONFIG_TOPOLOGY_NAME}.yaml”</p>
+<p>AKIT_CONFIG_USER = The user configuration file. “~/akit/config/user.yaml”
+AKIT_OUTPUT_DIRECTORY = The ouput directory for results. The default depends on the type of run.</p>
+</div></blockquote>
+</div>
+<div class="section" id="landscape-overrides">
+<h3>Landscape Overrides<a class="headerlink" href="#landscape-overrides" title="Permalink to this headline"></a></h3>
+<blockquote>
+<div><p>AKIT_SKIP_DEVICES = The identifiers of devices that should be skipped.</p>
+</div></blockquote>
+</div>
+<div class="section" id="results-customization">
+<h3>Results Customization<a class="headerlink" href="#results-customization" title="Permalink to this headline"></a></h3>
+<blockquote>
+<div><p>AKIT_RESULTS_STATIC_RESOURCE_DEST_DIR = The destination for static resources files. “~/akit/results/static”
+AKIT_RESULTS_STATIC_RESOURCE_SRC_DIR = The folder of the source files for static resources. “{AKIT_DIR}/templates/static”
+AKIT_RESULTS_HTML_TEMPLATE = The file path of the HTML template file</p>
+</div></blockquote>
+</div>
+<div class="section" id="extensibility-customizations">
+<h3>Extensibility Customizations<a class="headerlink" href="#extensibility-customizations" title="Permalink to this headline"></a></h3>
+<blockquote>
+<div><p>AKIT_CONFIG_LANDSCAPE_MODULE = The name of a module that contains a ‘Landscape’ override class.
+AKIT_UPNP_SCAN_INTEGRATION_BASE = The base directory for storing upnp code generator scan results.
+AKIT_UPNP_EXTENSIONS_INTEGRATION_BASE = The base directory for depositing code generated upnp device and service extensions.
+AKIT_UPNP_DYN_EXTENSIONS_MODULE = The base module name where code generated extions can be loaded from.</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="configuration-files">
+<h2>Configuration Files<a class="headerlink" href="#configuration-files" title="Permalink to this headline"></a></h2>
+<a class="reference internal image-reference" href="_static/images/automation-config.png"><img alt="Automation Configuration Layout" src="_static/images/automation-config.png" style="width: 400px;" /></a>
+<div class="section" id="landscape-file">
+<h3>Landscape File<a class="headerlink" href="#landscape-file" title="Permalink to this headline"></a></h3>
+<p><a class="reference internal" href="31-landscape-file.html#landscape-file"><span class="std std-ref">Landscape File</span></a>.</p>
+</div>
+<div class="section" id="topology-file">
+<h3>Topology File<a class="headerlink" href="#topology-file" title="Permalink to this headline"></a></h3>
+<p><a class="reference internal" href="32-topology-file.html#topology-file"><span class="std std-ref">Topology File</span></a>.</p>
+</div>
+<div class="section" id="runtime-file">
+<h3>Runtime File<a class="headerlink" href="#runtime-file" title="Permalink to this headline"></a></h3>
+<p><a class="reference internal" href="33-runtime-file.html#runtime-file"><span class="std std-ref">Runtime File</span></a>.</p>
+</div>
+<div class="section" id="credential-file">
+<h3>Credential File<a class="headerlink" href="#credential-file" title="Permalink to this headline"></a></h3>
+<p><a class="reference internal" href="34-credentials-file.html#credentials-file"><span class="std std-ref">Credentials File</span></a>.</p>
+</div>
+<div class="section" id="user-file">
+<h3>User File<a class="headerlink" href="#user-file" title="Permalink to this headline"></a></h3>
+<p><a class="reference internal" href="35-user-file.html#user-file"><span class="std std-ref">User File</span></a>.</p>
+</div>
 </div>
 <div class="section" id="commandline-options">
-<h3>Commandline Options<a class="headerlink" href="#commandline-options" title="Permalink to this headline"></a></h3>
-</div>
-</div>
-<div class="section" id="landscape-and-topology-configuration">
-<h2>Landscape and Topology Configuration<a class="headerlink" href="#landscape-and-topology-configuration" title="Permalink to this headline"></a></h2>
-<p>The final part of setting up your automation environment is to tell the <em>ExOrg QA</em> environment about
-the devices and resources that are available for use by the automation environment.</p>
-<p>The automation environment is configured by using four files:</p>
-<ul class="simple">
-<li><p>~/akit/config/credentials.yaml</p></li>
-<li><p>~/akit/config/landscape.yaml</p></li>
-<li><p>~/akit/config/runtime.yaml</p></li>
-<li><p>~/akit/config/topology.yaml</p></li>
-</ul>
-<p>To create these files, first create the directory that the automation environment looks for these files
-in.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir -p ~/akit/config
-</pre></div>
-</div>
-<p>The following examples shows the basic configurations that you might see in the configuration
-files for the most basic automation environment setup. For a complete description of the available
-configuration settings you can follow the links to the complete documentation for each configuration
-file type.</p>
-<div class="section" id="landscape-yaml">
-<h3>landscape.yaml<a class="headerlink" href="#landscape-yaml" title="Permalink to this headline"></a></h3>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">environment</span><span class="p">:</span>
-    <span class="nt">label</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">production</span>
-
-<span class="nt">pod</span><span class="p">:</span>
-
-    <span class="c1"># ================================================================================</span>
-    <span class="c1"># ================================================================================</span>
-    <span class="c1">#</span>
-    <span class="c1">#                             UPNP DEVICES</span>
-    <span class="c1">#</span>
-    <span class="c1"># ================================================================================</span>
-    <span class="c1"># ================================================================================</span>
-    <span class="nt">devices</span><span class="p">:</span>
-
-        <span class="c1"># ==========================================================</span>
-        <span class="p p-Indicator">-</span>   <span class="nt">deviceType</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">network/upnp</span>
-            <span class="nt">deviceClass</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">player</span>
-            <span class="nt">upnp</span><span class="p">:</span>
-                <span class="nt">USN</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOMEUSN_5CAAFD000C12</span>
-                <span class="nt">modelNumber</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Model1</span>
-                <span class="nt">modelName</span><span class="p">:</span> <span class="s">&quot;First</span><span class="nv"> </span><span class="s">Device&quot;</span>
-            <span class="nt">credentials</span><span class="p">:</span>
-            <span class="p p-Indicator">-</span>    <span class="l l-Scalar l-Scalar-Plain">player-ssh</span>
-            <span class="nt">features</span><span class="p">:</span>
-                <span class="nt">isolation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-            <span class="nt">skip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-
-    <span class="c1"># ================================================================================</span>
-    <span class="c1"># ================================================================================</span>
-    <span class="c1">#</span>
-    <span class="c1">#                             POWER CONTROLLERS</span>
-    <span class="c1">#</span>
-    <span class="c1"># ================================================================================</span>
-    <span class="c1"># ================================================================================</span>
-    <span class="nt">power</span><span class="p">:</span>
-
-        <span class="p p-Indicator">-</span>   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LPC934</span>
-            <span class="nt">powerType</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DliPowerSwitch</span>
-            <span class="nt">model</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LPC934</span>
-            <span class="nt">ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">192.168.1.50</span>
-            <span class="nt">credential</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">power</span>
-
-    <span class="c1"># ================================================================================</span>
-    <span class="c1"># ================================================================================</span>
-    <span class="c1">#</span>
-    <span class="c1">#                            SERIAL CONCENTRATORS</span>
-    <span class="c1">#</span>
-    <span class="c1"># ================================================================================</span>
-    <span class="c1"># ================================================================================</span>
-    <span class="nt">serial</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span>   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test-controller</span>
-            <span class="nt">host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">192.168.1.30</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="topology-yaml">
-<h3>topology.yaml<a class="headerlink" href="#topology-yaml" title="Permalink to this headline"></a></h3>
-</div>
+<h2>Commandline Options<a class="headerlink" href="#commandline-options" title="Permalink to this headline"></a></h2>
+<p>Command line options are available for specific commands which will override the variables and runtime
+configuration options.</p>
 </div>
 </div>
 
