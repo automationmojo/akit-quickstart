@@ -1,3 +1,5 @@
+.. _00-repository-branding:
+
 *******************
 Repository Branding
 *******************
