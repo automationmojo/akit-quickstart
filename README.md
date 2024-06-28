@@ -1,3 +1,7 @@
+# Note:  This is in older repository.  Please use this repo instead.
+
+[Automation Mojo - Automation Kit](https://github.com/automationmojo/mojo-automation-kit)
+
 # Automation Kit - Quick Start
 This is an example repository that shows how to get an enterprise distributed automation project off the ground quickly using the *Automation Kit* test framework.
 
